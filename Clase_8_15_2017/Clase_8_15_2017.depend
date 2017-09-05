@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1504237319 source:c:\users\saul\documents\github\metodos_numericos\clase_8_15_2017\main.c
+	"My_Math.h"
+	"My_Roots.h"
+
+1504119966 c:\users\saul\documents\github\metodos_numericos\clase_8_15_2017\my_math.h
+	<stdio.h>
+	<stdlib.h>
+	<float.h>
+
+1504236902 source:c:\users\saul\documents\github\metodos_numericos\clase_8_15_2017\my_math.c
+	"My_Math.h"
+
+1504142090 c:\users\saul\documents\github\metodos_numericos\clase_8_15_2017\my_roots.h
+	"My_Math.h"
+
+1504058908 source:c:\users\saul\documents\github\metodos_numericos\clase_8_15_2017\my_roots.h
+	"My_Math.h"
+
+1504300274 source:c:\users\saul\documents\github\metodos_numericos\clase_8_15_2017\my_roots.c
+	"My_Roots.h"
+	<math.h>
+
