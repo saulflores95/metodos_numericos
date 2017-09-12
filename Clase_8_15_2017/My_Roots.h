@@ -2,13 +2,13 @@
 #define MY_ROOTS_H_INCLUDED
 #include "My_Math.h"
 
-float F(float);
+double F(double);
 //funcion que mapea una exprecion
 void Tabla(float, float, int);
 
 void TablaTarea(double, double, int);
 
-double Biseccion(float, float, int);
+double Biseccion(double, double, int);
 
 
 #endif // MY_ROOTS_H_INCLUDED

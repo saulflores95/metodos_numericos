@@ -8,24 +8,24 @@
 
 //Funcion que suma dos numeros
 
-float Suma (float a, float b);
+float Suma(float, float);
 
 float Factorial(int a);
 
-double Abs (double a);
+double Abs(double x);
 
-double Residuo (double a, double b);
+double Residuo(double, double);
 
-double MyPowI (double a, int b);
+double MyPow(double, int);
 
 double Scarb(int n);
 
 double Seno(double, int);
 
-double ErrorA (double Vact, double Vant);
+double ErrorA(double, double);
 
-double Coseno(double x, int n);
+double Coseno(double, int);
 
-double Expo(double x, int n);
+double Expo(double, int);
 
 #endif // MY_MATH_H_INCLUDED
