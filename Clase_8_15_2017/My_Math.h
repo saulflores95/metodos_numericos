@@ -28,4 +28,20 @@ double Coseno(double, int);
 
 double Expo(double, int);
 
+double Tan(double, int);
+
+double Cotan(double, int);
+
+double Secante(double, int);
+
+double Cosecante(double, int);
+
+double Arcsin(double, int);
+
+double SenoH(double, int);
+
+double CosenoH(double, int);
+
+double LogNat(double, int);
+
 #endif // MY_MATH_H_INCLUDED

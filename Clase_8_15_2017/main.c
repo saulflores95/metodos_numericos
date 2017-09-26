@@ -1,12 +1,34 @@
 #include "My_Math.h"
 #include "My_Roots.h"
 #include "My_Poli_Roots.h"
-
+#include "My_Matrix.h"
 int main() {
 
-  printf("\n\t\t\t\t\t****************Metodos Numerico**************** \n");
-  polinomio a = { 2, -18, 3, 1 };
-  printf("\n\t la Raiz es %f", NewtonRPol(a, -2.0, 5));
+  printf("\n\t****************Metodos Numerico**************** \n");
+
+  matriz a, b, c;
+  a = ScanfMtx();
+  PrintMtx(a);
+  printf("\n\t El determinate es %f", Determinante(a));
+
+
+  /****************************************************************/
+  //1. printf("\n CosH(50):  %f", CosenoH(50.0, 8));
+  //2. printf("\n\t la Raiz es %f", Biseccion(1.5, 2, 10));
+  //3. printf("\n Falsa posicion: %f", FalsaPosicion(0.5, 1.0, 10));
+  /*4. polinomio a = {3, 101000,  19899, 980, 1};
+        PrintPol(a);
+        BirgeVieta(a);
+
+    polinomio a = {4, 121.0/2.0,  209.0/4.0, 69.0/4.0, 10.0, 1.0};
+    PrintPol(a);
+    printf("\n Newtom: %f", NewtonRPol(a, 4, 10));
+
+  */
+
+
+ // PrintPol(a);
+   /****************************************************************/
   /* TablaTarea(12, 16, 10);
    double ans = Biseccion(50, 80, 160);
    printf("\n\t la raiz es %f, ya que F(%f) = %f", ans, ans, F(ans));

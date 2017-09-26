@@ -19,4 +19,10 @@ float PolEval(polinomio, float);
 polinomio PolDeriv(polinomio);
 //Newton-Rapson para polinomios
 double NewtonRPol(polinomio, float, int);
+
+polinomio DivisionSint(polinomio, float);
+
+void BirgeVieta(polinomio);
+
+
 #endif // MY_POLI_ROOTS_H_INCLUDED

@@ -1,6 +1,6 @@
 #include "My_Math.h"
 
-//Funcion que suma dos numeros
+  //Funcion que suma dos numeros
 float Suma(float a, float b) {
   return (a + b);
 }
@@ -91,7 +91,7 @@ double Seno(double x, int n) {
     n++;
     ea = ErrorA(ans, ans_ant);
   } while (ea > es);
-  printf("\n\t%d\n\n", n);
+  // printf("\n\t%d\n\n", n);
   return (ans);
 }
 
@@ -109,6 +109,30 @@ double Coseno(double x, int n) {
   return (ans);
 }
 
+double Tan(double x, int n) {
+  double ans = Seno(x, n) / Coseno(x, n);
+  return (ans);
+}
+
+double Cotan(double x, int n) {
+  double ans = Coseno(x, n) / Seno(x, n);
+  return (ans);
+}
+
+double Secante(double x, int n) {
+  double ans = Tan(x, n) / Seno(x, n);
+  return (ans);
+}
+
+double Cosecante(double x, int n) {
+  double ans = Cotan(x, n) / Coseno(x, n);
+  return (ans);
+}
+
+double Arcsin(double x, int n) {
+  return 0;
+}
+
 double Expo(double x, int n) {
   double ans = 1.0, ans_ant, ea = 50.0, es;
   es = Scarb(n);
@@ -121,3 +145,65 @@ double Expo(double x, int n) {
   } while (ea > es);
   return (ans);
 }
+
+double LogNat(double x, int n) {
+
+  double ans = 0.0, ans_ant, ea = 50.0, es;
+
+  if (x <= 0) printf("Error, solo hay logaritmos naturales positivos");
+
+  else {
+
+    es = Scarb(n);
+    n = 0;
+
+    do {
+
+      ans_ant = ans;
+
+      ans += ((1.0) / ((2.0 * n) + 1.0)) * (MyPow(((MyPow(x, 2.0) - 1.0) / (MyPow(x, 2.0) + 1.0)), (2.0 * n) + 1.0));
+
+      n++;
+
+      ea = ErrorA(ans, ans_ant);
+
+    } while (ea > es);
+
+  }
+  return (ans);
+}
+
+double SenoH(double x, int n) {
+
+    double ans = 0.0, ans_ant, ea = 50.0, es;
+    es = Scarb(n);
+    n = 0;
+
+    do {
+      ans_ant = ans;
+      ans += (MyPow(x, 2 * n + 1)) / (Factorial(2 * +n + 1));
+      n++;
+
+      ea = ErrorA(ans, ans_ant);
+    } while (ea > es);
+
+    return (ans);
+
+  } //fin seno hiperbolico
+
+double CosenoH(double x, int n) {
+
+    double ans = 0.0, ans_ant, ea = 50.0, es;
+    es = Scarb(n);
+    n = 0;
+
+    do {
+      ans_ant = ans;
+      ans += (1) / (Factorial(2 * n)) * (MyPow(x, 2 * n));
+      n++;
+      ea = ErrorA(ans, ans_ant);
+    } while (ea > es);
+
+    printf("numero de iteraciones: %d", n);
+    return (ans);
+  }
