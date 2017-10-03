@@ -83,14 +83,43 @@ double Determinante(matriz a) {
 
 matriz SumaMtz(matriz a, matriz b) {
   int i, j;
-  matriz c;
   if (a.col > CMAX || a.col <= 0)
     a.col = 0;
   if (a.ren > RMAX || a.ren <= 0)
     a.ren = 0;
   for (i = 0; i < a.ren; i++) {
     for (j = 0; j < a.col; j++)
-      c.mtx[i][j] = a.mtx[i][j] + b.mtx[i][j];
+      a.mtx[i][j] = a.mtx[i][j] + b.mtx[i][j];
   }
-  PrintMtx(c);
+  return a;
+}
+
+matriz RestaMtz(matriz a, matriz b) {
+  int i, j;
+  if (a.col > CMAX || a.col <= 0)
+    a.col = 0;
+  if (a.ren > RMAX || a.ren <= 0)
+    a.ren = 0;
+  for (i = 0; i < a.ren; i++) {
+    for (j = 0; j < a.col; j++)
+      a.mtx[i][j] = a.mtx[i][j] - b.mtx[i][j];
+  }
+  return(a);
+}
+
+matriz MultMtx(matriz a, matriz b) {
+  if (a.col > CMAX || a.col <= 0)
+    a.col = 0;
+  if (a.ren > RMAX || a.ren <= 0)
+    a.ren = 0;
+  if(a.col == b.ren) {
+    int i, j;
+    for (i = 0; i < a.ren; i++) {
+      for (j = 0; j < a.col; j++)
+        a.mtx[i][j] = a.mtx[i][j] * b.mtx[i][j];
+    }
+    return(a);
+  }else {
+    printf("\n\t Matriz no compatible");
+  }
 }
