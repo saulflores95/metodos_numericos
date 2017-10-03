@@ -6,10 +6,12 @@ int main() {
 
   printf("\n\t****************Metodos Numerico**************** \n");
 
-  matriz a, b, c;
+  matriz a, b, c d;
   a = ScanfMtx();
-  PrintMtx(a);
-  printf("\n\t El determinate es %f", Determinante(a));
+  b = ScanfMtx();
+  c = SumaMtz(a, b);
+  PrintMtx(c);
+ // printf("\n\t El determinate es %f", Determinante(a));
 
 
   /****************************************************************/

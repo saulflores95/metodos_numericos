@@ -80,3 +80,17 @@ double Determinante(matriz a) {
   } //If a.ren != a.col
   return (d);
 }
+
+matriz SumaMtz(matriz a, matriz b) {
+  int i, j;
+  matriz c;
+  if (a.col > CMAX || a.col <= 0)
+    a.col = 0;
+  if (a.ren > RMAX || a.ren <= 0)
+    a.ren = 0;
+  for (i = 0; i < a.ren; i++) {
+    for (j = 0; j < a.col; j++)
+      c.mtx[i][j] = a.mtx[i][j] + b.mtx[i][j];
+  }
+  PrintMtx(c);
+}

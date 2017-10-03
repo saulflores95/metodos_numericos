@@ -22,4 +22,11 @@ matriz ZerosMtx(int, int);
 //determinante de una matriz
 double Determinante(matriz);
 
+matriz SumaMtz(matriz, matriz);
+
+matriz RestaMtz(matriz, matriz);
+
+matriz MultMtx(matriz, matriz);
+
+
 #endif // MY_MATRIX_H_INCLUDED
