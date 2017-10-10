@@ -33,5 +33,8 @@ int VerificaMtx(matriz a, matriz b);
 matriz Cramer(matriz, matriz);
 //descomposicion de Gauss
 matriz DesGauss(matriz, matriz);
-
+//Gauss - Jordan
+matriz GaussJordan(matriz, matriz);
+//Matriz indentidas
+matriz EyeMtx(int);
 #endif // MY_MATRIX_H_INCLUDED

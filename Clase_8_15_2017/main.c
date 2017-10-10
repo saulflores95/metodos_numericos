@@ -9,9 +9,9 @@ int main() {
   matriz a, b, x;
   a = ScanfMtx();
   PrintMtx(a);
-  b = ScanfMtx();
+  b = EyeMtx(a.ren);
   PrintMtx(b);
-  x = DesGauss(a, b);
+  x = GaussJordan(a, b);
   PrintMtx(x);
 
  // printf("\n\t El determinate es %f", Determinante(a));

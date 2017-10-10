@@ -182,7 +182,43 @@ matriz DesGauss(matriz a, matriz b) {
   }
   return (b);
 }
-
+//Gauss - Jordan
+matriz GaussJordan(matriz a, matriz b) {
+  int k, r, c;
+  if (VerificaMtx(a, b) != 0) {
+    printf("\n\t Nose puede resolver por Gauss - Jordan");
+    b = ZerosMtx(1, 1);
+  } else {
+    for (k = 0; k < a.ren; k++) {
+      for (c = 0; c < b.col; c++)
+        b.mtx[k][c] /= a.mtx[k][k];
+      for (c = a.col - 1; c >= k; c--)
+        a.mtx[k][c] /= a.mtx[k][k];
+      for (r = 0; r < a.ren; r++)
+        if (r != k) {
+          for (c = 0; c < b.col; c++)
+            b.mtx[r][c] -= a.mtx[r][k] * b.mtx[k][c];
+          for (c = a.col - 1; c >= k; c--)
+            b.mtx[r][c] -= a.mtx[r][c] * a.mtx[k][c];
+        } //Fin del if
+    } //Fin del for de variable k
+  } //Fin de if else
+  return (b);
+}
+//Matriz indentidad
+matriz EyeMtx(int n) {
+  matriz a = {
+    n,
+    n
+  };
+  if (a.ren > CMAX || a.ren <= 0){
+    a.col = 0;
+    a.ren = 0;
+  }
+  for(n = 0; n < a.ren; n++)
+    a.mtx[n][n] = 1.0;
+  return (a);
+}
 void crout(matriz a, matriz b, matriz c, int n) {
   int i, j, k;
   double sum = 0;
