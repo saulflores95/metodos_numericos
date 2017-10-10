@@ -37,6 +37,10 @@
 		<Unit filename="My_Math.h">
 			<Option target="Release" />
 		</Unit>
+		<Unit filename="My_Matrix.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="My_Matrix.h" />
 		<Unit filename="My_Poli_Roots.c">
 			<Option compilerVar="CC" />
 		</Unit>

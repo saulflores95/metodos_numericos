@@ -23,7 +23,6 @@ matriz ScanfMtx(void) {
     }
   return (a);
 }
-
 //funcion que imprime una matriz
 void PrintMtx(matriz a) {
   int r, c;
@@ -38,7 +37,6 @@ void PrintMtx(matriz a) {
     printf("\n");
   }
 }
-
 //matriz de ceros
 matriz ZerosMtx(int r, int c) {
   matriz a = {
@@ -51,7 +49,7 @@ matriz ZerosMtx(int r, int c) {
     a.ren = 0;
   return (a);
 }
-
+//Determinante de matriz
 double Determinante(matriz a) {
   matriz maux;
   double d = 0.0;
@@ -80,7 +78,7 @@ double Determinante(matriz a) {
   } //If a.ren != a.col
   return (d);
 }
-
+//Suma de Matriz
 matriz SumaMtz(matriz a, matriz b) {
   int i, j;
   if (a.col > CMAX || a.col <= 0)
@@ -93,7 +91,7 @@ matriz SumaMtz(matriz a, matriz b) {
   }
   return a;
 }
-
+//Resta de Matriz
 matriz RestaMtz(matriz a, matriz b) {
   int i, j;
   if (a.col > CMAX || a.col <= 0)
@@ -106,7 +104,7 @@ matriz RestaMtz(matriz a, matriz b) {
   }
   return(a);
 }
-
+//Multiplicacion de matriz
 matriz MultMtx(matriz a, matriz b) {
   if (a.col > CMAX || a.col <= 0)
     a.col = 0;
@@ -122,4 +120,97 @@ matriz MultMtx(matriz a, matriz b) {
   }else {
     printf("\n\t Matriz no compatible");
   }
+}
+//Verificacion de matriz
+int VerificaMtx(matriz a, matriz b) {
+  int ans = 0;
+  if (a.ren != a.col) {
+    printf("\n\t La Matriz A no es cuadrada");
+    ans = 1;
+  }
+  if (a.ren != b.ren) {
+    printf("\n\t La matriz A y B tiene n numero distinto de renglones");
+    ans = 2;
+  }
+  if (1 - (b.col == 1 || b.col == a.col)) {
+    printf("\n\t Las columnas de B deben ser 1 o de la misma dimension de A");
+    ans = 3;
+  }
+  if (Determinante(a) == 0) {
+    printf("\n\t Matriz Singular");
+    ans = 4;
+  }
+  return (ans);
+}
+//Regla de Cramer
+matriz Cramer(matriz a, matriz b) {
+  matriz x = { 1,1 }, maux;
+  int r, c;
+  float da;
+  if (VerificaMtx(a, b) != 0)
+    printf("\n\t Nose puede resolver regla de cramer");
+  else {
+    da = Determinante(a);
+    x = ZerosMtx(b.ren, 1);
+    for (c = 0; c < a.col; c++) {
+      maux = a;
+      for (r = 0; r < a.ren; r++)
+        maux.mtx[r][c] = b.mtx[r][0];
+      x.mtx[c][0] = Determinante(maux) / da;
+    }
+  }
+  return (x);
+}
+//descomposicion de Gauss
+matriz DesGauss(matriz a, matriz b) {
+  int k, r, c, i;
+  if (VerificaMtx(a, b) != 0) {
+    printf("\n\t Nose puede resolver por Gauss");
+    b = ZerosMtx(1, 1);
+  } else {
+    for (k = 0; k < a.ren - 1; k++)
+      for (r = k + 1; r < a.ren; r++) {
+        b.mtx[r][0] -= a.mtx[r][k] * b.mtx[k][0] / a.mtx[k][k];
+        for (c = a.col - 1; c >= k; c--)
+          a.mtx[r][c] -= a.mtx[r][k] * a.mtx[k][c] / a.mtx[k][k];
+      }
+    for (i = a.ren - 1; i >= 0; i--) {
+      for (k = i + 1; k < a.ren; k++)
+        b.mtx[i][0] -= a.mtx[i][k] * b.mtx[k][0];
+      b.mtx[i][0] /= a.mtx[i][i];
+    }
+  }
+  return (b);
+}
+
+void crout(matriz a, matriz b, matriz c, int n) {
+  int i, j, k;
+  double sum = 0;
+
+  for (i = 0; i < n; i++) {
+    c.mtx[i][i] = 1;
+  }
+
+  for (j = 0; j < n; j++) {
+    for (i = j; i < n; i++) {
+      sum = 0;
+      for (k = 0; k < j; k++) {
+        sum = sum + b.mtx[i][k] * c.mtx[k][j];
+      }
+      b.mtx[i][j] = a.mtx[i][j] - sum;
+    }
+
+    for (i = j; i < n; i++) {
+      sum = 0;
+      for (k = 0; k < j; k++) {
+        sum = sum + b.mtx[j][k] * c.mtx[k][i];
+      }
+      if (b.mtx[j][j] == 0) {
+        printf("det(b) close to 0!\n Can't divide by 0...\n");
+        exit(EXIT_FAILURE);
+      }
+      c.mtx[j][i] = (a.mtx[j][i] - sum) / b.mtx[j][j];
+    }
+  }
+  PrintMtx(c);
 }

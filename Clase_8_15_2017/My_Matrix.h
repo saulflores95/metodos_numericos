@@ -21,12 +21,17 @@ matriz ZerosMtx(int, int);
 
 //determinante de una matriz
 double Determinante(matriz);
-
+//Suma de Matriz
 matriz SumaMtz(matriz, matriz);
-
+//Resta Matriz
 matriz   RestaMtz(matriz, matriz);
-
+//Multiplicacion de Matriz
 matriz MultMtx(matriz, matriz);
-
+//Verifica MTX
+int VerificaMtx(matriz a, matriz b);
+//Regla de cramer
+matriz Cramer(matriz, matriz);
+//descomposicion de Gauss
+matriz DesGauss(matriz, matriz);
 
 #endif // MY_MATRIX_H_INCLUDED
