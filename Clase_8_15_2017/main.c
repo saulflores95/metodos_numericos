@@ -6,7 +6,12 @@ int main() {
 
   printf("\n\t****************Metodos Numerico**************** \n");
 
-  matriz a, b, x0, x1;
+  matriz a, c;
+  a = ScanfMtx();
+  PrintMtx(a);
+  c = TranspuestaMtx(a);
+  PrintMtx(c);
+ /* matriz a, b, x0, x1;
   a = ScanfMtx();
   PrintMtx(a);
   b = ScanfMtx();
@@ -15,6 +20,7 @@ int main() {
   PrintMtx(x0);
   x1 = IteraMtx(a, b, x0, 5, 0);
   PrintMtx(x1);
+  */
   /*matriz a,x;
   a = ScanfMtx();
   PrintMtx(a);

@@ -42,4 +42,7 @@ matriz IteraMtx(matriz, matriz, matriz, int, int);
 matriz JacobiMtx(matriz, matriz, matriz, int);
 //Solucion de un sistema de ecuaciones por Gauss-Seidel
 matriz GaussSeidelMtx(matriz, matriz, matriz, int);
+//Transpuesta de una matriz
+matriz TranspuestaMtx(matriz);
+
 #endif // MY_MATRIX_H_INCLUDED

@@ -266,6 +266,18 @@ matriz JacobiMtx(matriz a, matriz b, matriz x0, int n) {
 matriz GaussSeidelMtx(matriz a, matriz b, matriz x0, int n) {
   return (IteraMtx(a, b, x0, n, 1));
 }
+  //Transpuesta de una matriz
+matriz TranspuestaMtx(matriz a) {
+  int i, j;
+  matriz ans;
+  ans.ren = a.col;
+  ans.col = a.ren;
+  for(i = 0; i < a.ren; i++)
+    for(j = 0; j < a.ren; j++){
+      ans.mtx[j][i] = a.mtx[i][j];
+    }
+  return(ans);
+}
 
 void crout(matriz a, matriz b, matriz c, int n) {
   int i, j, k;
