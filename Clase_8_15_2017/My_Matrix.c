@@ -1,6 +1,6 @@
 #include "My_Matrix.h"
 
-//Funcion que lee una matriz
+  //Funcion que lee una matriz
 matriz ScanfMtx(void) {
   matriz a;
   int r, c;
@@ -23,7 +23,7 @@ matriz ScanfMtx(void) {
     }
   return (a);
 }
-//funcion que imprime una matriz
+  //funcion que imprime una matriz
 void PrintMtx(matriz a) {
   int r, c;
   if (a.col > CMAX || a.col <= 0)
@@ -37,7 +37,7 @@ void PrintMtx(matriz a) {
     printf("\n");
   }
 }
-//matriz de ceros
+  //matriz de ceros
 matriz ZerosMtx(int r, int c) {
   matriz a = {
     r,
@@ -49,7 +49,7 @@ matriz ZerosMtx(int r, int c) {
     a.ren = 0;
   return (a);
 }
-//Determinante de matriz
+  //Determinante de matriz
 double Determinante(matriz a) {
   matriz maux;
   double d = 0.0;
@@ -78,7 +78,7 @@ double Determinante(matriz a) {
   } //If a.ren != a.col
   return (d);
 }
-//Suma de Matriz
+  //Suma de Matriz
 matriz SumaMtz(matriz a, matriz b) {
   int i, j;
   if (a.col > CMAX || a.col <= 0)
@@ -91,7 +91,7 @@ matriz SumaMtz(matriz a, matriz b) {
   }
   return a;
 }
-//Resta de Matriz
+  //Resta de Matriz
 matriz RestaMtz(matriz a, matriz b) {
   int i, j;
   if (a.col > CMAX || a.col <= 0)
@@ -104,7 +104,7 @@ matriz RestaMtz(matriz a, matriz b) {
   }
   return(a);
 }
-//Multiplicacion de matriz
+  //Multiplicacion de matriz
 matriz MultMtx(matriz a, matriz b) {
   if (a.col > CMAX || a.col <= 0)
     a.col = 0;
@@ -121,7 +121,7 @@ matriz MultMtx(matriz a, matriz b) {
     printf("\n\t Matriz no compatible");
   }
 }
-//Verificacion de matriz
+  //Verificacion de matriz
 int VerificaMtx(matriz a, matriz b) {
   int ans = 0;
   if (a.ren != a.col) {
@@ -142,7 +142,7 @@ int VerificaMtx(matriz a, matriz b) {
   }
   return (ans);
 }
-//Regla de Cramer
+  //Regla de Cramer
 matriz Cramer(matriz a, matriz b) {
   matriz x = { 1,1 }, maux;
   int r, c;
@@ -161,7 +161,7 @@ matriz Cramer(matriz a, matriz b) {
   }
   return (x);
 }
-//descomposicion de Gauss
+  //descomposicion de Gauss
 matriz DesGauss(matriz a, matriz b) {
   int k, r, c, i;
   if (VerificaMtx(a, b) != 0) {
@@ -182,7 +182,7 @@ matriz DesGauss(matriz a, matriz b) {
   }
   return (b);
 }
-//Gauss - Jordan
+  //Gauss - Jordan
 matriz GaussJordan(matriz a, matriz b) {
   int k, r, c;
   if (VerificaMtx(a, b) != 0) {
@@ -205,7 +205,7 @@ matriz GaussJordan(matriz a, matriz b) {
   } //Fin de if else
   return (b);
 }
-//Matriz indentidad
+  //Matriz indentidad
 matriz EyeMtx(int n) {
   matriz a = {
     n,
@@ -219,6 +219,54 @@ matriz EyeMtx(int n) {
     a.mtx[n][n] = 1.0;
   return (a);
 }
+  //Inversa de una matris por Gauss-Jordan
+matriz InvMtx(matriz a) {
+    matriz ide, ans;
+    ide = EyeMtx(a.ren);
+    if (VerificaMtx(a, ide) != 0) {
+      printf("\n\tNo se puede obtener la inversa de la matriz");
+      ans = ZerosMtx(1, 1);
+    } else
+      ans = GaussJordan(a, ide);
+    return (ans);
+  }
+  //Metodo iterativo para sistemas de ecuaciones
+matriz IteraMtx(matriz a, matriz b, matriz x0, int n, int flag) {
+    matriz x1;
+    float es, ea = 50.0;
+    int i, j, k;
+    es = Scarb(n);
+    if (VerificaMtx(a, b) != 0 || VerificaMtx(a, x0) != 0) {
+      printf("\n\tNo se puede resolver la matriz");
+      x1 = ZerosMtx(1, 1);
+    } else {
+      while (ea > es) {
+        x1 = b;
+        for (i = 0; i < a.ren; i++) {
+          for (k = 0; k <= i - 1; k++)
+            if (flag == 0)
+              x1.mtx[i][0] -= a.mtx[i][k] * x0.mtx[k][0]; //Jacobi
+            else
+              x1.mtx[i][0] -= a.mtx[i][k] * x1.mtx[k][0]; //Gauss-Seidel
+          for (j = i + 1; j < a.ren; j++)
+            x1.mtx[i][0] -= a.mtx[i][j] * x0.mtx[j][0];
+          x1.mtx[i][0] /= a.mtx[i][i];
+        } //fin de i
+        ea = ErrorA(x1.mtx[0][0], x0.mtx[0][0]);
+        x0 = x1;
+      } //fin de while
+    }
+    return (x1);
+  }
+  //Solucion de un sistema de ecuaciones por Jacobi
+matriz JacobiMtx(matriz a, matriz b, matriz x0, int n) {
+    return (IteraMtx(a, b, x0, n, 0));
+  }
+  //Solucion de un sistema de ecuaciones por Gauss-Seidel
+matriz GaussSeidelMtx(matriz a, matriz b, matriz x0, int n) {
+  return (IteraMtx(a, b, x0, n, 1));
+}
+
 void crout(matriz a, matriz b, matriz c, int n) {
   int i, j, k;
   double sum = 0;
@@ -250,3 +298,4 @@ void crout(matriz a, matriz b, matriz c, int n) {
   }
   PrintMtx(c);
 }
+

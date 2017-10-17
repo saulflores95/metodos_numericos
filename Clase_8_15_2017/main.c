@@ -6,13 +6,30 @@ int main() {
 
   printf("\n\t****************Metodos Numerico**************** \n");
 
-  matriz a, b, x;
+  matriz a, b, x0, x1;
+  a = ScanfMtx();
+  PrintMtx(a);
+  b = ScanfMtx();
+  PrintMtx(b);
+  x0 = ZerosMtx(4, 1);
+  PrintMtx(x0);
+  x1 = IteraMtx(a, b, x0, 5, 0);
+  PrintMtx(x1);
+  /*matriz a,x;
+  a = ScanfMtx();
+  PrintMtx(a);
+  x = InvMtx(a);
+  PrintMtx(x);
+  */
+
+  /*matriz a, b, x;
   a = ScanfMtx();
   PrintMtx(a);
   b = EyeMtx(a.ren);
   PrintMtx(b);
   x = GaussJordan(a, b);
   PrintMtx(x);
+  */
 
  // printf("\n\t El determinate es %f", Determinante(a));
 

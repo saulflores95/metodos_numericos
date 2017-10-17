@@ -12,19 +12,16 @@ typedef struct {
 
 //Funcion que lee una matriz
 matriz ScanfMtx(void);
-
 //funcion que imprime una matriz
 void PrintMtx(matriz);
-
 //matriz de ceros
 matriz ZerosMtx(int, int);
-
 //determinante de una matriz
 double Determinante(matriz);
 //Suma de Matriz
 matriz SumaMtz(matriz, matriz);
 //Resta Matriz
-matriz   RestaMtz(matriz, matriz);
+matriz RestaMtz(matriz, matriz);
 //Multiplicacion de Matriz
 matriz MultMtx(matriz, matriz);
 //Verifica MTX
@@ -37,4 +34,12 @@ matriz DesGauss(matriz, matriz);
 matriz GaussJordan(matriz, matriz);
 //Matriz indentidas
 matriz EyeMtx(int);
+//Inversa de una matris por Gauss-Jordan
+matriz InvMtx(matriz);
+//Metodo iterativo para sistemas de ecuaciones
+matriz IteraMtx(matriz, matriz, matriz, int, int);
+//Solucion de un sistema de ecuaciones por Jacobi
+matriz JacobiMtx(matriz, matriz, matriz, int);
+//Solucion de un sistema de ecuaciones por Gauss-Seidel
+matriz GaussSeidelMtx(matriz, matriz, matriz, int);
 #endif // MY_MATRIX_H_INCLUDED
