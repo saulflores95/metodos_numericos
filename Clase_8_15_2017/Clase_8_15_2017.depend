@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1508272289 source:c:\users\saul\documents\github\metodos_numericos\clase_8_15_2017\main.c
+1509083044 source:c:\users\saul\documents\github\metodos_numericos\clase_8_15_2017\main.c
 	"My_Math.h"
 	"My_Roots.h"
 	"My_Poli_Roots.h"
@@ -28,9 +28,9 @@
 1505854097 source:c:\users\saul\documents\github\metodos_numericos\clase_8_15_2017\my_poli_roots.c
 	"My_Poli_Roots.h"
 
-1508271961 c:\users\saul\documents\github\metodos_numericos\clase_8_15_2017\my_matrix.h
+1509082891 c:\users\saul\documents\github\metodos_numericos\clase_8_15_2017\my_matrix.h
 	"My_Math.h"
 
-1508272261 source:c:\users\saul\documents\github\metodos_numericos\clase_8_15_2017\my_matrix.c
+1509083085 source:c:\users\saul\documents\github\metodos_numericos\clase_8_15_2017\my_matrix.c
 	"My_Matrix.h"
 

@@ -1,5 +1,4 @@
 #include "My_Matrix.h"
-
   //Funcion que lee una matriz
 matriz ScanfMtx(void) {
   matriz a;
@@ -147,6 +146,7 @@ matriz Cramer(matriz a, matriz b) {
   matriz x = { 1,1 }, maux;
   int r, c;
   float da;
+  int count = 1;
   if (VerificaMtx(a, b) != 0)
     printf("\n\t Nose puede resolver regla de cramer");
   else {
@@ -157,6 +157,9 @@ matriz Cramer(matriz a, matriz b) {
       for (r = 0; r < a.ren; r++)
         maux.mtx[r][c] = b.mtx[r][0];
       x.mtx[c][0] = Determinante(maux) / da;
+      printf("MATRIZ %d", count);
+      PrintMtx(maux);
+      printf("Determinante %f", Determinante(maux));
     }
   }
   return (x);
@@ -168,12 +171,17 @@ matriz DesGauss(matriz a, matriz b) {
     printf("\n\t Nose puede resolver por Gauss");
     b = ZerosMtx(1, 1);
   } else {
-    for (k = 0; k < a.ren - 1; k++)
+    for (k = 0; k < a.ren - 1; k++){
       for (r = k + 1; r < a.ren; r++) {
         b.mtx[r][0] -= a.mtx[r][k] * b.mtx[k][0] / a.mtx[k][k];
         for (c = a.col - 1; c >= k; c--)
           a.mtx[r][c] -= a.mtx[r][k] * a.mtx[k][c] / a.mtx[k][k];
       }
+    }
+    printf("Ans \n");
+    PrintMtx(a);
+    printf("------------------\n");
+
     for (i = a.ren - 1; i >= 0; i--) {
       for (k = i + 1; k < a.ren; k++)
         b.mtx[i][0] -= a.mtx[i][k] * b.mtx[k][0];
@@ -235,6 +243,7 @@ matriz IteraMtx(matriz a, matriz b, matriz x0, int n, int flag) {
     matriz x1;
     float es, ea = 50.0;
     int i, j, k;
+    int count = 0;
     es = Scarb(n);
     if (VerificaMtx(a, b) != 0 || VerificaMtx(a, x0) != 0) {
       printf("\n\tNo se puede resolver la matriz");
@@ -251,10 +260,12 @@ matriz IteraMtx(matriz a, matriz b, matriz x0, int n, int flag) {
           for (j = i + 1; j < a.ren; j++)
             x1.mtx[i][0] -= a.mtx[i][j] * x0.mtx[j][0];
           x1.mtx[i][0] /= a.mtx[i][i];
+          count++;
         } //fin de i
         ea = ErrorA(x1.mtx[0][0], x0.mtx[0][0]);
         x0 = x1;
       } //fin de while
+      printf("\n\t Cantidad de iteraciones %d \n", count);
     }
     return (x1);
   }
@@ -277,6 +288,28 @@ matriz TranspuestaMtx(matriz a) {
       ans.mtx[j][i] = a.mtx[i][j];
     }
   return(ans);
+}
+
+matriz SwitchMtx(matriz a, int flag) {
+  int i;
+  int swp1, swp2;
+  matriz newMatrix = a;
+  if(flag == 1) {
+    printf("\Cambia Renglon: "); scanf("%d", &swp1) ;  // Index de primer renglon
+    printf("Con el Renglon: "); scanf("%d", &swp2);     // Index de segundo renglon
+    for(i = 0; i < a.col; i++) {
+      newMatrix.mtx[swp2 - 1][i] = a.mtx[swp1 - 1][i];
+      newMatrix.mtx[swp1 - 1][i] = a.mtx[swp2 - 1][i];
+    }
+  }else {
+    printf("\Cambia columna: "); scanf("%d", &swp1) ;  // Index de primer columna
+    printf("con columna: "); scanf("%d", &swp2);     // Index de segundo columna
+    for(i = 0; i < a.col; i++) {
+      newMatrix.mtx[i][swp2 - 1] = a.mtx[i][swp1 - 1];
+      newMatrix.mtx[i][swp1 - 1] = a.mtx[i][swp2 - 1];
+    }
+  }
+  return(newMatrix);
 }
 
 void crout(matriz a, matriz b, matriz c, int n) {

@@ -44,5 +44,6 @@ matriz JacobiMtx(matriz, matriz, matriz, int);
 matriz GaussSeidelMtx(matriz, matriz, matriz, int);
 //Transpuesta de una matriz
 matriz TranspuestaMtx(matriz);
-
+//Cambio de renglon y columna
+matriz SwitchMtx(matriz a, int flag);
 #endif // MY_MATRIX_H_INCLUDED

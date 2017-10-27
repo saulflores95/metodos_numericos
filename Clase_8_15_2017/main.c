@@ -5,22 +5,46 @@
 int main() {
 
   printf("\n\t****************Metodos Numerico**************** \n");
-
-  matriz a, c;
+  printf("Gauss-Seidel");
+  matriz a, b;
   a = ScanfMtx();
-  PrintMtx(a);
-  c = TranspuestaMtx(a);
-  PrintMtx(c);
- /* matriz a, b, x0, x1;
-  a = ScanfMtx();
+  b = SwitchMtx(a, 0);
+  PrintMtx(b);
+  /*
   PrintMtx(a);
   b = ScanfMtx();
   PrintMtx(b);
   x0 = ZerosMtx(4, 1);
   PrintMtx(x0);
-  x1 = IteraMtx(a, b, x0, 5, 0);
-  PrintMtx(x1);
+  ans = GaussSeidelMtx(a, b, x0, 5);
+  PrintMtx(ans);
   */
+
+
+
+  /*
+  ans = DesGauss(a, b);
+  PrintMtx(ans);
+  */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   /*matriz a,x;
   a = ScanfMtx();
   PrintMtx(a);
