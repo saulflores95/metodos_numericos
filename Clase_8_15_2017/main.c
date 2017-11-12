@@ -2,14 +2,47 @@
 #include "My_Roots.h"
 #include "My_Poli_Roots.h"
 #include "My_Matrix.h"
+#include "My_Reg_Inter.h"
 int main() {
+  int n=0, per=0;
+  printf("\n ingresa un numero \n");
+  scanf("%d",&n);
+  per = num_per(n);
+  if(n == per) {
+    printf("Es perfecto");
+  }
+  else
+    printf("no es perfecto");
 
-  printf("\n\t****************Metodos Numerico**************** \n");
-  printf("Gauss-Seidel");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /*printf("Gauss-Seidel");
   matriz a, b;
   a = ScanfMtx();
   b = SwitchMtx(a, 0);
-  PrintMtx(b);
+  PrintMtx(b);*/
+
   /*
   PrintMtx(a);
   b = ScanfMtx();
@@ -122,5 +155,5 @@ int main() {
    printf("\n Cos(0): %f", Coseno(1.0, 5));
    printf("\n Expo(0): %lf", Expo(1.0, 10));
    */
-  return 0;
+;  return 0;
 }

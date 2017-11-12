@@ -45,6 +45,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="My_Poli_Roots.h" />
+		<Unit filename="My_Reg_Inter.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="My_Reg_Inter.h" />
 		<Unit filename="My_Roots.c">
 			<Option compilerVar="CC" />
 		</Unit>

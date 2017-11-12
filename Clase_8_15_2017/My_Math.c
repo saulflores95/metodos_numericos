@@ -207,3 +207,15 @@ double CosenoH(double x, int n) {
     printf("numero de iteraciones: %d", n);
     return (ans);
   }
+
+int num_per(int n) {
+    int sum = 0;
+    int i;
+    for (i = 1; i < n; i++) {
+        if ((n % i) == 0) {
+          sum += i;
+          printf("\n\t%d ", i);
+        }
+    }
+    return sum;
+}

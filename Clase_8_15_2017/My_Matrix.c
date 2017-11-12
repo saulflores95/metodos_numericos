@@ -32,7 +32,7 @@ void PrintMtx(matriz a) {
   printf("\n");
   for (r = 0; r < a.ren; r++) {
     for (c = 0; c < a.col; c++)
-      printf("\t%.5f", a.mtx[r][c]);
+      printf("\t%.5f ", a.mtx[r][c]);
     printf("\n");
   }
 }
@@ -157,9 +157,6 @@ matriz Cramer(matriz a, matriz b) {
       for (r = 0; r < a.ren; r++)
         maux.mtx[r][c] = b.mtx[r][0];
       x.mtx[c][0] = Determinante(maux) / da;
-      printf("MATRIZ %d", count);
-      PrintMtx(maux);
-      printf("Determinante %f", Determinante(maux));
     }
   }
   return (x);

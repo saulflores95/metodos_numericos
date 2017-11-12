@@ -2,7 +2,7 @@
 #define MY_MATRIX_H_INCLUDED
 
 #include "My_Math.h"
-#define RMAX 10
+#define RMAX 20
 #define CMAX 10
 
 typedef struct {

@@ -44,4 +44,5 @@ double CosenoH(double, int);
 
 double LogNat(double, int);
 
+int num_per(int);
 #endif // MY_MATH_H_INCLUDED
