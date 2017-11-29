@@ -31,6 +31,14 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="My_Final_Project.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="My_Final_Project.h" />
+		<Unit filename="My_Intergral_dif.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="My_Intergral_dif.h" />
 		<Unit filename="My_Math.c">
 			<Option compilerVar="CC" />
 		</Unit>

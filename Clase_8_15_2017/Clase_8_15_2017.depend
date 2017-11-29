@@ -41,3 +41,60 @@
 1510083340 c:\users\saul\documents\github\metodos_numericos\clase_8_15_2017\my_reg_inter.h
 	"My_Matrix.h"
 
+1511957876 source:c:\users\saulf\documents\github\metodos_numericos\clase_8_15_2017\main.c
+	"My_Math.h"
+	"My_Roots.h"
+	"My_Poli_Roots.h"
+	"My_Matrix.h"
+	"My_Reg_Inter.h"
+	"My_Intergral_dif.h"
+	"My_Final_Project.h"
+
+1511953971 c:\users\saulf\documents\github\metodos_numericos\clase_8_15_2017\my_math.h
+	<stdio.h>
+	<stdlib.h>
+	<float.h>
+
+1511953971 c:\users\saulf\documents\github\metodos_numericos\clase_8_15_2017\my_roots.h
+	"My_Math.h"
+
+1511953971 c:\users\saulf\documents\github\metodos_numericos\clase_8_15_2017\my_poli_roots.h
+	"My_Math.h"
+
+1511953971 c:\users\saulf\documents\github\metodos_numericos\clase_8_15_2017\my_matrix.h
+	"My_Math.h"
+
+1511957629 c:\users\saulf\documents\github\metodos_numericos\clase_8_15_2017\my_reg_inter.h
+	"My_Matrix.h"
+
+1511953971 source:c:\users\saulf\documents\github\metodos_numericos\clase_8_15_2017\my_math.c
+	"My_Math.h"
+
+1511953971 source:c:\users\saulf\documents\github\metodos_numericos\clase_8_15_2017\my_matrix.c
+	"My_Matrix.h"
+
+1511953971 source:c:\users\saulf\documents\github\metodos_numericos\clase_8_15_2017\my_poli_roots.c
+	"My_Poli_Roots.h"
+
+1511957657 source:c:\users\saulf\documents\github\metodos_numericos\clase_8_15_2017\my_reg_inter.c
+	"My_Reg_Inter.h"
+
+1511953971 source:c:\users\saulf\documents\github\metodos_numericos\clase_8_15_2017\my_roots.c
+	"My_Roots.h"
+
+1511954635 c:\users\saulf\documents\github\metodos_numericos\clase_8_15_2017\my_intergral_dif.h
+	"My_Math.h"
+	"My_Matrix.h"
+
+1511957836 c:\users\saulf\documents\github\metodos_numericos\clase_8_15_2017\my_final_project.h
+	"My_Intergral_dif.h"
+	"My_Reg_Inter.h"
+
+1511958006 source:c:\users\saulf\documents\github\metodos_numericos\clase_8_15_2017\my_final_project.c
+	"My_Final_Project.h"
+	"My_Intergral_dif.h"
+
+1511954622 source:c:\users\saulf\documents\github\metodos_numericos\clase_8_15_2017\my_intergral_dif.c
+	"My_Intergral_dif.h"
+	<math.h>
+

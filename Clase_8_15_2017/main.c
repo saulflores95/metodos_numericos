@@ -3,39 +3,29 @@
 #include "My_Poli_Roots.h"
 #include "My_Matrix.h"
 #include "My_Reg_Inter.h"
+#include "My_Intergral_dif.h"
+#include "My_Final_Project.h"
 int main() {
-  int n=0, per=0;
-  printf("\n ingresa un numero \n");
-  scanf("%d",&n);
-  per = num_per(n);
-  if(n == per) {
-    printf("Es perfecto");
-  }
-  else
-    printf("no es perfecto");
+    //Proyecto Final Metodos Numericos
+    printf("\tInterpolador con Best Fitt\n");
+    Interpolador(0.0, 2.0, 1.0, 4.0);
 
 
+//printf("\n\t La Rounge Kutta es: \t\t%f", R4kc(0.0, 2.0, 1.0, 4.0));
 
+//polinomio a;
+//a = ScanfPol();
+//PrintPol(a);
+//a = PolIntegral(a);
+//PrintPol(a);
+//printf("La interpolacion es %.20f", Simpson3M(-10.0, 0.0, 1000))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*
+  matriz a, s;
+  a = ScanTable();
+  PrintMtx(a);
+  printf("\n la interpolacion es %f", Lagrang(a, 2));
+*/
 
   /*printf("Gauss-Seidel");
   matriz a, b;
@@ -59,18 +49,6 @@ int main() {
   ans = DesGauss(a, b);
   PrintMtx(ans);
   */
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
